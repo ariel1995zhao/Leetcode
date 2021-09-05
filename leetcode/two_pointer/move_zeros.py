@@ -46,3 +46,26 @@ class Solution:
             nums[slow] = 0 
             slow += 1
         return nums
+
+
+## solution 3: for loop two pointer
+
+class Solution:
+    
+    ## [1,3,12,0,0] --> [1,3,12,0,0]
+    ##           f 
+    ##      s
+    
+    ## s points to the last location of 0 
+    ## f points to the index of non-zero 
+    
+    def moveZeroes(self, nums: List[int]) -> None:
+        if not nums:
+            return []
+        s = 0 
+        for f in range(len(nums)):
+            if nums[f] != 0:
+                nums[f],nums[s] = nums[s],nums[f]
+                s += 1
+        return nums
+            
